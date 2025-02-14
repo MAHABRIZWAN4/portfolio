@@ -1,26 +1,49 @@
+"use client";
 import Image from "next/image";
-import { FaHome } from "react-icons/fa";
-import { MdCastForEducation } from "react-icons/md";
-import { MdWorkHistory } from "react-icons/md";
-import { Briefcase } from "lucide-react";
-import { MdContactPhone } from "react-icons/md";
-import Link from "next/link";
-
+import { FaLinkedin, FaGithub, FaFacebook, FaInstagramSquare, FaStar } from "react-icons/fa";
 import { IoMdDownload } from "react-icons/io";
-
-import { IoMdCloudDownload } from "react-icons/io";
-
 import { Code, Paintbrush, LayoutDashboard, ShoppingCart, Server, PencilRuler } from "lucide-react";
-import { FaStar } from "react-icons/fa";
-import { FaLinkedin } from "react-icons/fa";
-import { FaGithub } from "react-icons/fa";
-import { FaFacebook } from "react-icons/fa";
-import { FaInstagramSquare } from "react-icons/fa";
-
+import { useEffect, useRef } from "react";
+import Typed from 'typed.js';
 export default function Portfolio() {
+
+
+
+
+
+
+  
+
+  // Create reference to store the DOM element containing the animation
+  const el = useRef(null);
+
+  useEffect(() => {
+    if (el.current) {
+      const typed = new Typed(el.current, {
+        strings: ['Coding', 'Web Development', 'Designing', 'Open Source'],
+        typeSpeed: 50,
+      });
+
+      return () => {
+        // Destroy Typed instance during cleanup to stop animation
+        typed.destroy();
+      };
+    }
+  }, []);
+
+
+
+
+
+
+
+
+
+
+  
   return (
     <div className="flex flex-col lg:flex-row min-h-screen bg-gray-100">
-      <aside className="w-full lg:w-1/4 bg-white p-6 shadow-lg lg:h-auto">
+      <aside className=" lg:w-1/4 bg-white p-6 shadow-lg lg:h-[1200px] sm:w-[93%]">
         <div className="text-center">
           <Image
             src="/My office.jpeg"
@@ -42,23 +65,23 @@ export default function Portfolio() {
 
         <div className="flex flex-col gap-2 border-b pb-7 pt-2">
           <div className="flex flex-row justify-between">
-            <span className="bg-yellow-400 px-3 py-[1px] font-medium rounded-md">Age :</span>
+            <span className="bg-yellow-400 px-3 py-[1px] font-medium rounded-md lg:p-1">Age :</span>
             <span className="font-medium">22</span>
           </div>
           <div className="flex flex-row justify-between">
-            <span className="bg-yellow-400 px-3 py-[1px] font-medium rounded-md">Residence :</span>
-            <span className="font-medium">Karachi, Pakistan</span>
+            <span className="bg-yellow-400 px-3 py-[1px] font-medium rounded-md  lg:p-1">Residence:</span>
+            <span className="font-medium">Karachi,Pakistan</span>
           </div>
           <div className="flex flex-row justify-between">
-            <span className="bg-yellow-400 px-3 py-[1px] font-medium rounded-md">Freelance :</span>
+            <span className="bg-yellow-400 px-3 py-[1px] font-medium rounded-md  lg:p-1">Freelance :</span>
             <span className="font-medium text-lime-600">Available</span>
           </div>
           <div className="flex flex-row justify-between">
-            <span className="bg-yellow-400 px-3 py-[1px] font-medium rounded-md">Marital Status :</span>
+            <span className="bg-yellow-400 px-3 py-[1px] font-medium rounded-md  lg:p-1">Marital Status :</span>
             <span className="font-medium">Single</span>
           </div>
           <div className="flex flex-row justify-between">
-            <span className="bg-yellow-400 px-3 py-[1px] font-medium rounded-md">Address :</span>
+            <span className="bg-yellow-400 px-3 py-[1px] font-medium rounded-md  lg:p-1">Address :</span>
             <span className="font-medium">Kharadar, Karachi</span>
           </div>
         </div>
@@ -102,23 +125,30 @@ export default function Portfolio() {
         </button>
       </aside>
 
-      <main className="flex-1 p-6">
+      <main className="flex-1 p-6 mt-16 lg:mt-0 sm:w-[90%]">
         <div className="flex flex-col lg:flex-row items-center">
-          <div className="bg-white p-6 lg:p-16 shadow rounded-lg w-full lg:w-[90%] flex flex-col lg:flex-row">
+          <div className="bg-white p-6 lg:p-8 shadow rounded-lg w-full lg:w-[90%] flex flex-col lg:flex-row">
             <div>
               <h1 className="text-4xl font-bold">I'm <span className="text-yellow-500">Mahab Rizwan</span></h1>
               <p className="text-4xl mt-2 font-bold">Front-End Developer</p>
+
+
+              A <span className="font-semibold">comprehensive blog</span> for community insights 
+      <br className="hidden lg:block" /> using{" "}
+      <span className="font-semibold underline decoration-primary"><span ref={el} /></span>
+
+
               <p className="mt-2 mr-4">I'm a passionate front-end developer who loves crafting visually stunning and highly functional web experiences. With expertise in Next.js, TailwindCSS, and modern web technologies, I build fast, responsive, and user-friendly interfaces. Whether it's designing sleek e-commerce platforms or optimizing performance, I thrive on turning ideas into reality.</p>
               <button className="mt-4 bg-yellow-500 text-white px-6 py-2 rounded-lg">Hire Me</button>
             </div>
             <div className="mt-6 lg:mt-0 lg:ml-6">
-              <Image src="/My office.jpeg" alt="myoffice" width={1200} height={1000} className="h-[90%]"></Image>
+              <Image src="/My office.jpeg" alt="myoffice" width={1200} height={1000} className="h-[90%] lg:h-[80%]"></Image>
             </div>
           </div>
         </div>
 
         <h2 className="text-4xl text-center font-bold mt-10">My Services</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 lg:mr-16 gap-6 mt-6">
           <div className="p-6 bg-white shadow-lg rounded-lg flex flex-col items-center text-center">
             <Code size={40} className="text-yellow-500 mb-3" />
             <h3 className="text-xl font-semibold">Web Development</h3>
@@ -151,9 +181,9 @@ export default function Portfolio() {
           </div>
         </div>
 
-        <h2 className="text-2xl font-semibold mt-10 flex justify-center">Recommendations</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-6 mx-4 lg:mx-20">
-          <div className="p-6 bg-white shadow-lg rounded-lg flex flex-col items-center text-center">
+        <h2 className="text-3xl font-bold mt-10 flex lg:ml-28 lg:mt-36">Recommendations</h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-6 mx-4 lg:mr-16   lg:ml-[-300px]">
+          <div className="p-6 bg-white shadow-lg rounded-lg flex flex-col items-center text-center ">
             <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Client" className="w-16 h-16 rounded-full mb-3" />
             <h3 className="text-lg font-semibold">Ali Khan</h3>
             <p className="text-sm text-gray-500">CEO, TechSolutions</p>

@@ -7,8 +7,8 @@ import Image from 'next/image';
 
 export default function Navbar() {
   return (
-    <nav className="w-full sm:w-16 bg-background shadow-md flex flex-row sm:flex-col items-center justify-around sm:justify-start py-3 sm:py-4 fixed bottom-0 sm:right-0 sm:top-1/2 sm:-translate-y-1/2 sm:h-[600px] z-50">
-      <ul className="flex flex-row sm:flex-col gap-3 sm:gap-5 sm:space-y-4">
+    <nav className="w-full sm:w-16 bg-background shadow-md flex flex-row sm:flex-col items-center justify-around sm:justify-start py-3 sm:py-4 fixed bottom-0 sm:right-0 sm:top-1/2 sm:-translate-y-1/2 sm:h-screen  z-50">
+      <ul className="flex flex-row sm:flex-col gap-3 sm:gap-5 sm:space-y-4 sm:mt-12">
         {/* Home */}
         <li className="relative group">
           <Link href="/" className="flex items-center justify-center">
