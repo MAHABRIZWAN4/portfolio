@@ -5,7 +5,7 @@ import { IoMdDownload } from "react-icons/io";
 import { Code, Paintbrush, LayoutDashboard, ShoppingCart, Server, PencilRuler } from "lucide-react";
 import { useEffect, useRef } from "react";
 import Typed from 'typed.js';
-export default function Portfolio() {
+export default function Intro() {
 
 
 
@@ -20,7 +20,7 @@ export default function Portfolio() {
   useEffect(() => {
     if (el.current) {
       const typed = new Typed(el.current, {
-        strings: ['Coding', 'Web Development', 'Designing', 'Open Source'],
+        strings: ['FrontEnd Developer', 'Web-Developer', 'Web-Designing', 'UI/UX Designer'],
         typeSpeed: 50,
       });
 
@@ -130,12 +130,10 @@ export default function Portfolio() {
           <div className="bg-white p-6 lg:p-8 shadow rounded-lg w-full lg:w-[90%] flex flex-col lg:flex-row">
             <div>
               <h1 className="text-4xl font-bold">I'm <span className="text-yellow-500">Mahab Rizwan</span></h1>
-              <p className="text-4xl mt-2 font-bold">Front-End Developer</p>
+              {/* <p className="text-4xl mt-2 font-bold">Front-End Developer</p> */}
 
 
-              A <span className="font-semibold">comprehensive blog</span> for community insights 
-      <br className="hidden lg:block" /> using{" "}
-      <span className="font-semibold underline decoration-primary"><span ref={el} /></span>
+      <span className="font-bold text-3xl underline decoration-primary"><span ref={el} /></span>
 
 
               <p className="mt-2 mr-4">I'm a passionate front-end developer who loves crafting visually stunning and highly functional web experiences. With expertise in Next.js, TailwindCSS, and modern web technologies, I build fast, responsive, and user-friendly interfaces. Whether it's designing sleek e-commerce platforms or optimizing performance, I thrive on turning ideas into reality.</p>
