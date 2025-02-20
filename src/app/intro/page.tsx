@@ -3,11 +3,12 @@ import Image from "next/image";
 import { FaLinkedin, FaGithub, FaFacebook, FaInstagramSquare, FaStar } from "react-icons/fa";
 import { IoMdDownload } from "react-icons/io";
 import { Code, Paintbrush, LayoutDashboard, ShoppingCart, Server, PencilRuler } from "lucide-react";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import Typed from 'typed.js';
 import { PDFDownloadLink } from '@react-pdf/renderer';
 
 import CVPDF from "../Components/CVPDF";
+import HireMeModal from "../Components/Modal";
 
 export default function Intro() {
   const el = useRef(null);
@@ -25,6 +26,16 @@ export default function Intro() {
     }
   }, []);
 
+
+
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+
+  
+
+
+
+  
   return (
     <div className="flex flex-col lg:flex-row min-h-screen bg-gray-100">
       <aside className="lg:w-1/4 bg-white p-6 shadow-lg lg:h-[1200px] sm:w-[93%]">
@@ -130,7 +141,7 @@ export default function Intro() {
               <h1 className="text-4xl font-bold">I'm <span className="text-yellow-500">Mahab Rizwan</span></h1>
               <span className="font-bold text-3xl underline decoration-primary"><span ref={el} /></span>
               <p className="mt-2 mr-4">I'm a passionate front-end developer who loves crafting visually stunning and highly functional web experiences. With expertise in Next.js, TailwindCSS, and modern web technologies, I build fast, responsive, and user-friendly interfaces. Whether it's designing sleek e-commerce platforms or optimizing performance, I thrive on turning ideas into reality.</p>
-              <button className="mt-4 bg-yellow-500 text-white px-6 py-2 rounded-lg">Hire Me</button>
+              <button className="mt-4 bg-yellow-500 text-white px-6 py-2 rounded-lg"  onClick={() => setIsModalOpen(true)}>Hire Me</button>
             </div>
             <div className="mt-6 lg:mt-0 lg:ml-6">
               <Image src="/My office.jpeg" alt="myoffice" width={1200} height={1000} className="h-[90%] lg:h-[80%]"></Image>
@@ -202,6 +213,8 @@ export default function Intro() {
             <p className="text-gray-600 mt-3">"Mahab's expertise in Next.js and TailwindCSS helped us launch a seamless online store. Highly recommended!"</p>
           </div>
         </div>
+
+        <HireMeModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
       </main>
     </div>
   );
