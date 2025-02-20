@@ -1,4 +1,5 @@
 import Navbar from "./Components/Navbar"
+import ContactPage from "./contact-us/page"
 import Education from "./education/page"
 import Intro from "./intro/page"
 import Portfolio from "./portfolio/page"
@@ -9,6 +10,7 @@ return(
   <Intro/>
   <Education/>
   <Portfolio/>
+  <ContactPage/>
   </main>
 )
 }

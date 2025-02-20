@@ -5,16 +5,10 @@ import { IoMdDownload } from "react-icons/io";
 import { Code, Paintbrush, LayoutDashboard, ShoppingCart, Server, PencilRuler } from "lucide-react";
 import { useEffect, useRef } from "react";
 import Typed from 'typed.js';
+import { PDFDownloadLink } from '@react-pdf/renderer';
+import CVPDF from "../Components/CVPDF";
+
 export default function Intro() {
-
-
-
-
-
-
-  
-
-  // Create reference to store the DOM element containing the animation
   const el = useRef(null);
 
   useEffect(() => {
@@ -25,25 +19,14 @@ export default function Intro() {
       });
 
       return () => {
-        // Destroy Typed instance during cleanup to stop animation
         typed.destroy();
       };
     }
   }, []);
 
-
-
-
-
-
-
-
-
-
-  
   return (
     <div className="flex flex-col lg:flex-row min-h-screen bg-gray-100">
-      <aside className=" lg:w-1/4 bg-white p-6 shadow-lg lg:h-[1200px] sm:w-[93%]">
+      <aside className="lg:w-1/4 bg-white p-6 shadow-lg lg:h-[1200px] sm:w-[93%]">
         <div className="text-center">
           <Image
             src="/My office.jpeg"
@@ -69,19 +52,19 @@ export default function Intro() {
             <span className="font-medium">22</span>
           </div>
           <div className="flex flex-row justify-between">
-            <span className="bg-yellow-400 px-3 py-[1px] font-medium rounded-md  lg:p-1">Residence:</span>
-            <span className="font-medium">Karachi,Pakistan</span>
+            <span className="bg-yellow-400 px-3 py-[1px] font-medium rounded-md lg:p-1">Residence:</span>
+            <span className="font-medium">Karachi, Pakistan</span>
           </div>
           <div className="flex flex-row justify-between">
-            <span className="bg-yellow-400 px-3 py-[1px] font-medium rounded-md  lg:p-1">Freelance :</span>
+            <span className="bg-yellow-400 px-3 py-[1px] font-medium rounded-md lg:p-1">Freelance :</span>
             <span className="font-medium text-lime-600">Available</span>
           </div>
           <div className="flex flex-row justify-between">
-            <span className="bg-yellow-400 px-3 py-[1px] font-medium rounded-md  lg:p-1">Marital Status :</span>
+            <span className="bg-yellow-400 px-3 py-[1px] font-medium rounded-md lg:p-1">Marital Status :</span>
             <span className="font-medium">Single</span>
           </div>
           <div className="flex flex-row justify-between">
-            <span className="bg-yellow-400 px-3 py-[1px] font-medium rounded-md  lg:p-1">Address :</span>
+            <span className="bg-yellow-400 px-3 py-[1px] font-medium rounded-md lg:p-1">Address :</span>
             <span className="font-medium">Kharadar, Karachi</span>
           </div>
         </div>
@@ -119,10 +102,24 @@ export default function Intro() {
             ))}
           </div>
         </div>
-        <button className="bg-yellow-500 w-full my-8 py-3 rounded-lg flex flex-row gap-2 items-center justify-center">
-          <span className="text-black font-medium text-xl">Download CV</span>
-          <span><IoMdDownload className="text-xl" /></span>
-        </button>
+
+        <PDFDownloadLink 
+          document={<CVPDF />} 
+          fileName="Mahab_Rizwan_CV.pdf"
+          className="w-full"
+        >
+          {({ loading, error }) => (
+            <button 
+              className="bg-yellow-500 w-full my-8 py-3 rounded-lg flex flex-row gap-2 items-center justify-center hover:bg-yellow-600 transition-colors"
+              disabled={loading}
+            >
+              <span className="text-black font-medium text-xl">
+                {loading ? 'Generating CV...' : 'Download CV'}
+              </span>
+              <IoMdDownload className="text-xl" />
+            </button>
+          )}
+        </PDFDownloadLink>
       </aside>
 
       <main className="flex-1 p-6 mt-16 lg:mt-0 sm:w-[90%]">
@@ -130,12 +127,7 @@ export default function Intro() {
           <div className="bg-white p-6 lg:p-8 shadow rounded-lg w-full lg:w-[90%] flex flex-col lg:flex-row">
             <div>
               <h1 className="text-4xl font-bold">I'm <span className="text-yellow-500">Mahab Rizwan</span></h1>
-              {/* <p className="text-4xl mt-2 font-bold">Front-End Developer</p> */}
-
-
-      <span className="font-bold text-3xl underline decoration-primary"><span ref={el} /></span>
-
-
+              <span className="font-bold text-3xl underline decoration-primary"><span ref={el} /></span>
               <p className="mt-2 mr-4">I'm a passionate front-end developer who loves crafting visually stunning and highly functional web experiences. With expertise in Next.js, TailwindCSS, and modern web technologies, I build fast, responsive, and user-friendly interfaces. Whether it's designing sleek e-commerce platforms or optimizing performance, I thrive on turning ideas into reality.</p>
               <button className="mt-4 bg-yellow-500 text-white px-6 py-2 rounded-lg">Hire Me</button>
             </div>
@@ -180,8 +172,8 @@ export default function Intro() {
         </div>
 
         <h2 className="text-3xl font-bold mt-10 flex lg:ml-28 lg:mt-36">Recommendations</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-6 mx-4 lg:mr-16   lg:ml-[-300px]">
-          <div className="p-6 bg-white shadow-lg rounded-lg flex flex-col items-center text-center ">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-6 mx-4 lg:mr-16 lg:ml-[-300px]">
+          <div className="p-6 bg-white shadow-lg rounded-lg flex flex-col items-center text-center">
             <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Client" className="w-16 h-16 rounded-full mb-3" />
             <h3 className="text-lg font-semibold">Ali Khan</h3>
             <p className="text-sm text-gray-500">CEO, TechSolutions</p>
