@@ -6,6 +6,7 @@ import { Code, Paintbrush, LayoutDashboard, ShoppingCart, Server, PencilRuler } 
 import { useEffect, useRef } from "react";
 import Typed from 'typed.js';
 import { PDFDownloadLink } from '@react-pdf/renderer';
+
 import CVPDF from "../Components/CVPDF";
 
 export default function Intro() {
