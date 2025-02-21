@@ -20,11 +20,13 @@ const HireMeModal: React.FC<HireMeModalProps> = ({ isOpen, onClose }) => {
     });
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    console.log("Form Data:", formData);
-    onClose(); // Close the modal after submission
-  };
+  // const handleSubmit = (e: React.FormEvent) => {
+  //   // Remove e.preventDefault() to allow the form to submit normally
+  //   console.log("Form Data:", formData);
+  //   onClose(); // Close the modal after submission
+  // };
+
+  
 
   if (!isOpen) return null;
 
@@ -32,7 +34,7 @@ const HireMeModal: React.FC<HireMeModalProps> = ({ isOpen, onClose }) => {
     <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center">
       <div className="bg-white p-6 rounded-lg w-full max-w-md">
         <h2 className="text-2xl font-bold mb-4">Hire Me</h2>
-        <form onSubmit={handleSubmit}>
+        <form action="https://formspree.io/f/mwpvyzbr" method="POST">
           <div className="mb-4">
             <label className="block text-sm font-medium mb-2" htmlFor="name">
               Name
