@@ -2,6 +2,7 @@
 import { useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
+import { motion } from 'framer-motion';
 
 const Portfolio = () => {
     const [filter, setFilter] = useState('all');
@@ -16,37 +17,79 @@ const Portfolio = () => {
     ];
 
     return (
-        <div className="text-center p-4">
-            <h1 className="text-3xl font-bold">Portfolio</h1>
-            <div className="my-4 flex justify-center gap-4">
+        <div className="text-center p-8 bg-gradient-to-r from-gray-50 to-blue-50">
+            <motion.h1 
+                className="text-4xl font-bold mb-8 text-gray-800"
+                initial={{ opacity: 0, y: -20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6 }}
+            >
+                Portfolio
+            </motion.h1>
+            <motion.div 
+                className="my-6 flex justify-center gap-4"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0.8, delay: 0.3 }}
+            >
                 <button 
                     onClick={() => setFilter('all')} 
-                    className={`text-xs p-2 sm:text-sm sm:px-4 sm:py-2 rounded ${filter === 'all' ? 'bg-orange-500 text-white' : 'bg-gray-200'}`}
-                >All Categories</button>
+                    className={`text-sm px-4 py-2 rounded-lg transition-all duration-300 ${
+                        filter === 'all' ? 'bg-orange-500 text-white shadow-lg' : 'bg-gray-200 hover:bg-gray-300'
+                    }`}
+                >
+                    All Categories
+                </button>
                 <button 
                     onClick={() => setFilter('ui-design')} 
-                    className={`text-xs  p-2  sm:text-sm sm:px-4 sm:py-2 rounded ${filter === 'ui-design' ? 'bg-orange-500 text-white' : 'bg-gray-200'}`}
-                >UI Design</button>
+                    className={`text-sm px-4 py-2 rounded-lg transition-all duration-300 ${
+                        filter === 'ui-design' ? 'bg-orange-500 text-white shadow-lg' : 'bg-gray-200 hover:bg-gray-300'
+                    }`}
+                >
+                    UI Design
+                </button>
                 <button 
                     onClick={() => setFilter('web-template')} 
-                    className={`text-xs  p-2 sm:text-sm  sm:px-4 sm:py-2 rounded ${filter === 'web-template' ? 'bg-orange-500 text-white' : 'bg-gray-200'}`}
-                >Web Templates</button>
-            </div>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4  md:ml-20 sm:ml-28 sm:mr-32 md:mr-24">
-                {projects.filter(project => filter === 'all' || project.category === filter).map(project => (
-                    <div key={project.id} className="p-4 border rounded shadow">
+                    className={`text-sm px-4 py-2 rounded-lg transition-all duration-300 ${
+                        filter === 'web-template' ? 'bg-orange-500 text-white shadow-lg' : 'bg-gray-200 hover:bg-gray-300'
+                    }`}
+                >
+                    Web Templates
+                </button>
+            </motion.div>
+            <motion.div 
+                className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl mx-auto"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0.8, delay: 0.5 }}
+            >
+                {projects.filter(project => filter === 'all' || project.category === filter).map((project, index) => (
+                    <motion.div 
+                        key={project.id}
+                        className="p-4 border rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 bg-white"
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.6, delay: index * 0.2 }}
+                        whileHover={{ scale: 1.05 }}
+                    >
                         <Link href={project.link} target="_blank">
                             <Image
                                 src={project.image}
                                 alt={project.name}
-                                width={300}
-                                height={200}
-                                className="rounded"
+                                width={400}
+                                height={250}
+                                className="rounded-lg object-cover"
                             />
+                            <motion.p 
+                                className="mt-3 text-lg font-semibold text-gray-700"
+                                whileHover={{ color: "#F59E0B" }} // Orange hover effect
+                            >
+                                {project.name}
+                            </motion.p>
                         </Link>
-                    </div>
+                    </motion.div>
                 ))}
-            </div>
+            </motion.div>
         </div>
     );
 };
