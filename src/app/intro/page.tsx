@@ -11,6 +11,11 @@ import { useEffect, useRef, useState } from "react";
 import Typed from 'typed.js';
 import { PDFDownloadLink } from '@react-pdf/renderer';
 
+
+import dynamic from 'next/dynamic';
+
+
+
 import CVPDF from "../Components/CVPDF";
 import HireMeModal from "../Components/Modal";
 
@@ -32,6 +37,16 @@ export default function Intro() {
 
   const [isModalOpen, setIsModalOpen] = useState(false);
 
+
+
+  const PDFDownloadLink = dynamic(
+    () => import('@react-pdf/renderer').then((mod) => mod.PDFDownloadLink),
+    { ssr: false }
+  );
+  
+  const CVPDF = dynamic(() => import('../Components/CVPDF'), { ssr: false });
+
+  
   return (
     <div className="flex flex-col lg:flex-row min-h-screen bg-gray-100">
       <aside className="lg:w-1/4 bg-white p-6 shadow-lg lg:h-[1200px] sm:w-[93%]">
@@ -141,7 +156,7 @@ export default function Intro() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 1 }}
         >
-          <PDFDownloadLink 
+          {/* <PDFDownloadLink 
             document={<CVPDF />} 
             fileName="Mahab_Rizwan_CV.pdf"
             className="w-full"
@@ -157,7 +172,30 @@ export default function Intro() {
                 <IoMdDownload className="text-xl" />
               </button>
             )}
-          </PDFDownloadLink>
+          </PDFDownloadLink> */}
+
+
+
+
+{typeof window !== 'undefined' && (
+  <PDFDownloadLink 
+    document={<CVPDF />} 
+    fileName="Mahab_Rizwan_CV.pdf"
+    className="w-full"
+  >
+    {({ loading }) => (
+      <button 
+        className="bg-yellow-500 w-full my-8 py-3 rounded-lg flex flex-row gap-2 items-center justify-center hover:bg-yellow-600 transition-colors"
+        disabled={loading}
+      >
+        <span className="text-black font-medium text-xl">
+          {loading ? 'Generating CV...' : 'Download CV'}
+        </span>
+        <IoMdDownload className="text-xl" />
+      </button>
+    )}
+  </PDFDownloadLink>
+)}
         </motion.div>
       </aside>
 
