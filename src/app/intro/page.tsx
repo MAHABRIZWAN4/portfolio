@@ -1,5 +1,3 @@
-
-
 "use client";
 
 import { motion } from "framer-motion";
@@ -10,11 +8,6 @@ import { Code, Paintbrush, LayoutDashboard, ShoppingCart, Server, PencilRuler } 
 import { useEffect, useRef, useState } from "react";
 import Typed from 'typed.js';
 import { PDFDownloadLink } from '@react-pdf/renderer';
-
-
-import dynamic from 'next/dynamic';
-
-
 
 import CVPDF from "../Components/CVPDF";
 import HireMeModal from "../Components/Modal";
@@ -37,16 +30,6 @@ export default function Intro() {
 
   const [isModalOpen, setIsModalOpen] = useState(false);
 
-
-
-  const PDFDownloadLink = dynamic(
-    () => import('@react-pdf/renderer').then((mod) => mod.PDFDownloadLink),
-    { ssr: false }
-  );
-  
-  const CVPDF = dynamic(() => import('../Components/CVPDF'), { ssr: false });
-
-  
   return (
     <div className="flex flex-col lg:flex-row min-h-screen bg-gray-100">
       <aside className="lg:w-1/4 bg-white p-6 shadow-lg lg:h-[1200px] sm:w-[93%]">
@@ -156,7 +139,7 @@ export default function Intro() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 1 }}
         >
-          {/* <PDFDownloadLink 
+          <PDFDownloadLink 
             document={<CVPDF />} 
             fileName="Mahab_Rizwan_CV.pdf"
             className="w-full"
@@ -172,30 +155,7 @@ export default function Intro() {
                 <IoMdDownload className="text-xl" />
               </button>
             )}
-          </PDFDownloadLink> */}
-
-
-
-
-{typeof window !== 'undefined' && (
-  <PDFDownloadLink 
-    document={<CVPDF />} 
-    fileName="Mahab_Rizwan_CV.pdf"
-    className="w-full"
-  >
-    {({ loading }) => (
-      <button 
-        className="bg-yellow-500 w-full my-8 py-3 rounded-lg flex flex-row gap-2 items-center justify-center hover:bg-yellow-600 transition-colors"
-        disabled={loading}
-      >
-        <span className="text-black font-medium text-xl">
-          {loading ? 'Generating CV...' : 'Download CV'}
-        </span>
-        <IoMdDownload className="text-xl" />
-      </button>
-    )}
-  </PDFDownloadLink>
-)}
+          </PDFDownloadLink>
         </motion.div>
       </aside>
 
@@ -287,7 +247,13 @@ export default function Intro() {
               transition={{ duration: 0.5, delay: 1.2 + index * 0.1 }}
               className="p-6 bg-white shadow-lg rounded-lg flex flex-col items-center text-center"
             >
-              <Image src={client.Image} alt="Client" className="w-16 h-16 rounded-full mb-3" />
+              <Image 
+          src={client.Image} 
+          alt="Client" 
+          width={100} 
+          height={100} 
+          className="w-16 h-16 rounded-full mb-3"
+        />
               <h3 className="text-lg font-semibold">{client.name}</h3>
               <p className="text-sm text-gray-500">{client.role}</p>
               <div className="flex mt-2">
