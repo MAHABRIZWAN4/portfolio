@@ -1,7 +1,7 @@
 "use client"
 import React from 'react';
 import { FaHome } from 'react-icons/fa';
-import { MdCastForEducation, MdWorkHistory, MdContactPhone } from 'react-icons/md';
+import { MdCastForEducation, MdContactPhone } from 'react-icons/md';
 import { Briefcase } from 'lucide-react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation'; // Import usePathname
