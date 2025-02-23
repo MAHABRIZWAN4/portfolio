@@ -3,13 +3,11 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { FaLinkedin, FaGithub, FaFacebook, FaInstagramSquare, FaStar } from "react-icons/fa";
-import { IoMdDownload } from "react-icons/io";
+
 import { Code, Paintbrush, LayoutDashboard, ShoppingCart, Server, PencilRuler } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import Typed from 'typed.js';
-import { PDFDownloadLink } from '@react-pdf/renderer';
 
-import CVPDF from "../Components/CVPDF";
 import HireMeModal from "../Components/Modal";
 
 
