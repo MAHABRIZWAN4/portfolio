@@ -12,6 +12,23 @@ import { PDFDownloadLink } from '@react-pdf/renderer';
 import CVPDF from "../Components/CVPDF";
 import HireMeModal from "../Components/Modal";
 
+
+
+import dynamic from 'next/dynamic';
+
+const DownloadCVButton = dynamic(
+  () => import('../Components/DownloadCVButton'),
+  { 
+    ssr: false,
+    loading: () => (
+      <button className="bg-yellow-500 w-full my-8 py-3 rounded-lg flex flex-row gap-2 items-center justify-center">
+        <span className="text-black font-medium text-xl">Loading CV...</span>
+      </button>
+    )
+  }
+);
+
+
 export default function Intro() {
   const el = useRef(null);
 
@@ -134,7 +151,7 @@ export default function Intro() {
           </div>
         </motion.div>
 
-        <motion.div
+        {/* <motion.div
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 1 }}
@@ -156,7 +173,17 @@ export default function Intro() {
               </button>
             )}
           </PDFDownloadLink>
-        </motion.div>
+        </motion.div> */}
+
+
+
+<motion.div
+    initial={{ opacity: 0, y: 50 }}
+    animate={{ opacity: 1, y: 0 }}
+    transition={{ duration: 0.5, delay: 1 }}
+  >
+    <DownloadCVButton />
+  </motion.div>
       </aside>
 
       <main className="flex-1 p-6 mt-16 lg:mt-0 sm:w-[90%]">
