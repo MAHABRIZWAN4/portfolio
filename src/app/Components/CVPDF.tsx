@@ -48,7 +48,7 @@ const CVPDF: React.FC = () => (
       <View style={styles.header}>
         <Text style={styles.name}>Mahab Rizwan</Text>
         <Text style={styles.title}>Front-End Developer</Text>
-        <Text>Karachi, Pakistan | Freelance: Available</Text>
+        <Text>Karachi, Pakistan </Text>
       </View>
 
       {/* Professional Summary */}
@@ -65,7 +65,7 @@ const CVPDF: React.FC = () => (
         <Text style={styles.sectionTitle}>Technical Skills</Text>
         <Text>• Frontend: HTML5, CSS3, JavaScript (ES6+), TypeScript</Text>
         <Text>• Frameworks: Next.js, React.js</Text>
-        <Text>• Styling: Tailwind CSS, CSS Modules, SASS</Text>
+        <Text>• Styling: Tailwind CSS, CSS Modules</Text>
         <Text>• Tools: Figma, Sanity CMS, Git, Stripe API</Text>
       </View>
 
@@ -73,10 +73,10 @@ const CVPDF: React.FC = () => (
       <View style={styles.section}>
         <Text style={styles.sectionTitle}>Professional Experience</Text>
         <View style={styles.experienceItem}>
-          <Text>E-commerce Developer | Freelance</Text>
-          <Text>2022-Present</Text>
+          <Text>E-commerce Developer</Text>
+          <Text>2024-Present</Text>
           <Text>
-            • Developed 10+ custom e-commerce stores using Next.js and Tailwind CSS{"\n"}
+            • Developed custom e-commerce stores using Next.js and Tailwind CSS{"\n"}
             • Integrated Stripe payment gateway and Sanity CMS for content management{"\n"}
             • Optimized web performance achieving 95+ Lighthouse scores{"\n"}
             • Implemented responsive designs with mobile-first approach
@@ -88,21 +88,26 @@ const CVPDF: React.FC = () => (
       <View style={styles.section}>
         <Text style={styles.sectionTitle}>Education</Text>
         <View style={styles.experienceItem}>
-          <Text>Governor Sindh Initiative</Text>
-          <Text>AI, Web 3.0 & Metaverse Certification | 2023</Text>
+          <Text>KMA School</Text>
+          <Text>Matric in Computer Science | 2020</Text>
         </View>
         <View style={styles.experienceItem}>
           <Text>KMA College</Text>
-          <Text>Intermediate in Computer Science | 2020</Text>
+          <Text>Intermediate in Pre-Engineering | 2022</Text>
+        </View>
+        <View style={styles.experienceItem}>
+          <Text>Governor Sindh Initiative (Certified In Karachi University (KU))</Text>
+          <Text>AI, Web 3.0 & Metaverse Certification | 2023</Text>
         </View>
       </View>
 
       {/* Contact */}
       <View style={styles.section}>
-        <Text style={styles.sectionTitle}>Contact</Text>
-        <Text style={styles.contactItem}>LinkedIn: linkedin.com/in/mahab-rizwan</Text>
-        <Text style={styles.contactItem}>Portfolio: mahabrizwan.com</Text>
-        <Text style={styles.contactItem}>GitHub: github.com/mahabdev</Text>
+        <Text style={styles.sectionTitle}>Contact:</Text>
+        <Text style={styles.contactItem}>Phone and Watsapp Number: 03122191103</Text>
+        <Text style={styles.contactItem}>email: mahabrizwan@gmail.com</Text>
+        <Text style={styles.contactItem}>LinkedIn: https://www.linkedin.com/in/mahab-rizwan-831095341/ </Text>
+        <Text style={styles.contactItem}>Portfolio: https://my-portfolio-4-mauve.vercel.app/</Text>
       </View>
     </Page>
   </Document>

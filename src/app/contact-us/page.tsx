@@ -105,8 +105,8 @@ export default function ContactPage() {
             </motion.div>
             <div>
               <p className="text-gray-700">Email: <strong>mahabrizwan@gmail.com</strong></p>
-              <p className="text-gray-700">Skype: <strong>@Yourusername</strong></p>
-              <p className="text-gray-700">Telegram: <strong>@Yourusername</strong></p>
+              <p className="text-gray-700">Linkedin: <strong>https://www.linkedin.com/in/mahab-rizwan-831095341/</strong></p>
+              <p className="text-gray-700">Facebook: <strong>https://www.facebook.com/profile.php?id=61568315694188</strong></p>
             </div>
           </div>
         </motion.div>
@@ -124,9 +124,9 @@ export default function ContactPage() {
               <FiPhone className="text-white" size={24} />
             </motion.div>
             <div>
-              <p className="text-gray-700">Support Services: <strong>15389</strong></p>
-              <p className="text-gray-700">Office: <strong>+58 (021)356 567 233</strong></p>
-              <p className="text-gray-700">Personal: <strong>+58 (021)356 567 235</strong></p>
+             
+              <p className="text-gray-700">Phone: <strong>03122191103</strong></p>
+              <p className="text-gray-700">Watsapp: <strong>03122191103</strong></p>
             </div>
           </div>
         </motion.div>
